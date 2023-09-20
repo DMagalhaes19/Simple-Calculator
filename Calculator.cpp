@@ -1,17 +1,3 @@
-//create a calculator with this following functions
-//addition, subtraction, multiplication, division, modulus, power, factorial, square root
-//use a GUI to make it look nice and user friendly
-//use a menu to select the function you want to use
-//use a loop to keep the program running until the user wants to quit the program
-//use a switch statement to select the function the user wants to use
-//use a function for each of the functions
-//use a function to display the menu
-//use a function to get the user input
-//use a function to display the results
-//use a function to get the user input for the menu
-//use a function to get the user input for the numbers
-//store the results in a variable to allow to be used in other functions if needed
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
