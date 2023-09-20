@@ -1,165 +1,453 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
 
-//function prototypes
-void displayMenu();
-int getMenuChoice();
-void getNumbers(int *num1, int *num2);
-void displayResults(int result);
-int addition(int num1, int num2);
-int subtraction(int num1, int num2);
-int multiplication(int num1, int num2);
-int division(int num1, int num2);
-int modulus(int num1, int num2);
-int power(int num1, int num2);
-int factorial(int num1);
-int squareRoot(int num1);
+#define PI 3.14159265
 
-int main()
-{
-    int num1, num2, result, choice;
+using namespace std;
 
-    do
-    {
-        displayMenu();
-        choice = getMenuChoice();
+void sin_func();
+void cos_func();
+void tan_func();
+void cot_func();
+void sec_func();
+void cosec_func();
+void log_func();
+void log10_func();
+void log2_func();
+void exp_func();
+void pow_func();
+void sqrt_func();
+void fact_func();
+void mod_func();
+void abs_func();
+void ceil_func();
+void floor_func();
+void round_func();
+void rand_func();
+void max_func();
+void min_func();
+void avg_func();
+void sum_func();
+void diff_func();
+void mul_func();
+void div_func();
+void median_func();
+void mode_func();
+void range_func();
+void sd_func();
+void var_func();
+void clear_func();
+void exit_func();
 
-        switch(choice)
-        {
-            case 1:
-                getNumbers(&num1, &num2);
-                result = addition(num1, num2);
-                displayResults(result);
-                break;
-            case 2:
-                getNumbers(&num1, &num2);
-                result = subtraction(num1, num2);
-                displayResults(result);
-                break;
-            case 3:
-                getNumbers(&num1, &num2);
-                result = multiplication(num1, num2);
-                displayResults(result);
-                break;
-            case 4:
-                getNumbers(&num1, &num2);
-                result = division(num1, num2);
-                displayResults(result);
-                break;
-            case 5:
-                getNumbers(&num1, &num2);
-                result = modulus(num1, num2);
-                displayResults(result);
-                break;
-            case 6:
-                getNumbers(&num1, &num2);
-                result = power(num1, num2);
-                displayResults(result);
-                break;
-            case 7:
-                getNumbers(&num1, &num2);
-                result = factorial(num1);
-                displayResults(result);
-                break;
-            case 8:
-                getNumbers(&num1, &num2);
-                result = squareRoot(num1);
-                displayResults(result);
-                break;
-            case 9:
-                printf("Thank you for using the calculator!\n");
-                break;
-            default:
-                printf("Invalid choice!\n");
-                break;
+int main() {
+    while (true) {
+        cout << "Select an operation:" << endl;
+        cout << "1. Sine\n2. Cosine\n3. Tangent\n4. Cotangent\n5. Secant\n6. Cosecant\n7. Logarithm (base e)\n8. Logarithm (base 10)\n9. Logarithm (base 2)\n10. Exponential\n11. Power\n12. Square Root\n13. Factorial\n14. Modulus\n15. Absolute Value\n16. Ceil\n17. Floor\n18. Round\n19. Random\n20. Max\n21. Min\n22. Average\n23. Sum\n24. Difference\n25. Multiplication\n26. Division\n27. Median\n28. Mode\n29. Range\n30. Standard Deviation\n31. Variance\n32. Clear Screen\n33. Exit" << endl;
+
+        int choice;
+        cin >> choice;
+
+        switch (choice) {
+            case 1: sin_func(); break;
+            case 2: cos_func(); break;
+            case 3: tan_func(); break;
+            case 4: cot_func(); break;
+            case 5: sec_func(); break;
+            case 6: cosec_func(); break;
+            case 7: log_func(); break;
+            case 8: log10_func(); break;
+            case 9: log2_func(); break;
+            case 10: exp_func(); break;
+            case 11: pow_func(); break;
+            case 12: sqrt_func(); break;
+            case 13: fact_func(); break;
+            case 14: mod_func(); break;
+            case 15: abs_func(); break;
+            case 16: ceil_func(); break;
+            case 17: floor_func(); break;
+            case 18: round_func(); break;
+            case 19: rand_func(); break;
+            case 20: max_func(); break;
+            case 21: min_func(); break;
+            case 22: avg_func(); break;
+            case 23: sum_func(); break;
+            case 24: diff_func(); break;
+            case 25: mul_func(); break;
+            case 26: div_func(); break;
+            case 27: median_func(); break;
+            case 28: mode_func(); break;
+            case 29: range_func(); break;
+            case 30: sd_func(); break;
+            case 31: var_func(); break;
+            case 32: clear_func(); break;
+            case 33: exit_func(); break;
+            default: cout << "Invalid choice. Please try again." << endl;
         }
-    }while(choice != 9);
+    }
 
     return 0;
 }
 
-void displayMenu()
-{
-    printf("Calculator Menu\n");
-    printf("1. Addition\n");
-    printf("2. Subtraction\n");
-    printf("3. Multiplication\n");
-    printf("4. Division\n");
-    printf("5. Modulus\n");
-    printf("6. Power\n");
-    printf("7. Factorial\n");
-    printf("8. Square Root\n");
-    printf("9. Quit\n");
+// Define the functions for various operations (similar to your original code)
+
+void sin_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "sin(" << x << ") = " << sin(x * PI / 180) << endl;
 }
 
-int getMenuChoice()
-{
-    int choice;
-
-    printf("Enter your choice: ");
-    scanf("%d", &choice);
-
-    return choice;
+// Define other functions in a similar manner
+void cos_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "cos(" << x << ") = " << cos(x * PI / 180) << endl;
 }
 
-void getNumbers(int *num1, int *num2)
-{
-    printf("Enter the first number: ");
-    scanf("%d", num1);
-
-    printf("Enter the second number: ");
-    scanf("%d", num2);
+void tan_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "tan(" << x << ") = " << tan(x * PI / 180) << endl;
 }
 
-void displayResults(int result)
-{
-    printf("The result is: %d\n", result);
+void cot_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "cot(" << x << ") = " << 1 / tan(x * PI / 180) << endl;
 }
 
-int addition(int num1, int num2)
-{
-    return num1 + num2;
+void sec_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "sec(" << x << ") = " << 1 / cos(x * PI / 180) << endl;
 }
 
-int subtraction(int num1, int num2)
-{
-    return num1 - num2;
+void cosec_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "cosec(" << x << ") = " << 1 / sin(x * PI / 180) << endl;
 }
 
-int multiplication(int num1, int num2)
-{
-    return num1 * num2;
+void log_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "log(" << x << ") = " << log(x) << endl;
 }
 
-int division(int num1, int num2)
-{
-    return num1 / num2;
+void log10_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "log10(" << x << ") = " << log10(x) << endl;
 }
 
-int modulus(int num1, int num2)
-{
-    return num1 % num2;
+void log2_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "log2(" << x << ") = " << log2(x) << endl;
 }
 
-int power(int num1, int num2)
-{
-    return pow(num1, num2);
+void exp_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "exp(" << x << ") = " << exp(x) << endl;
 }
 
-int factorial(int num1)
-{
-    int i, fact = 1;
+void pow_func() {
+    double x, y;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "Enter the value of y: ";
+    cin >> y;
+    cout << "pow(" << x << ", " << y << ") = " << pow(x, y) << endl;
+}
 
-    for(i = 1; i <= num1; i++)
-    {
+void sqrt_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "sqrt(" << x << ") = " << sqrt(x) << endl;
+}
+
+void fact_func() {
+    int x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    int fact = 1;
+    for (int i = 1; i <= x; i++) {
         fact *= i;
     }
-
-    return fact;
+    cout << "fact(" << x << ") = " << fact << endl;
 }
 
-int squareRoot(int num1)
-{
-    return sqrt(num1);
+void mod_func() {
+    int x, y;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "Enter the value of y: ";
+    cin >> y;
+    cout << "mod(" << x << ", " << y << ") = " << x % y << endl;
+}
+
+void abs_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "abs(" << x << ") = " << abs(x) << endl;
+}
+
+void ceil_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "ceil(" << x << ") = " << ceil(x) << endl;
+}
+
+void floor_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "floor(" << x << ") = " << floor(x) << endl;
+}
+
+void round_func() {
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "round(" << x << ") = " << round(x) << endl;
+}
+
+void rand_func() {
+    cout << "rand() = " << rand() << endl;
+}
+
+void max_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    cout << "max = " << *max_element(v.begin(), v.end()) << endl;
+}
+
+void min_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    cout << "min = " << *min_element(v.begin(), v.end()) << endl;
+}
+
+void avg_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += v[i];
+    }
+    cout << "avg = " << sum / n << endl;
+}
+
+void sum_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += v[i];
+    }
+    cout << "sum = " << sum << endl;
+}
+
+void diff_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    int diff = v[0];
+    for (int i = 1; i < n; i++) {
+        diff -= v[i];
+    }
+    cout << "diff = " << diff << endl;
+}
+
+void mul_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    int mul = 1;
+    for (int i = 0; i < n; i++) {
+        mul *= v[i];
+    }
+    cout << "mul = " << mul << endl;
+}
+
+void div_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    int div = v[0];
+    for (int i = 1; i < n; i++) {
+        div /= v[i];
+    }
+    cout << "div = " << div << endl;
+}
+
+void median_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    sort(v.begin(), v.end());
+    if (n % 2 == 0) {
+        cout << "median = " << (v[n / 2] + v[n / 2 - 1]) / 2 << endl;
+    } else {
+        cout << "median = " << v[n / 2] << endl;
+    }
+}
+
+void mode_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    sort(v.begin(), v.end());
+    int max_count = 1, curr_count = 1, res = v[0];
+    for (int i = 1; i < n; i++) {
+        if (v[i] == v[i - 1]) {
+            curr_count++;
+        } else {
+            if (curr_count > max_count) {
+                max_count = curr_count;
+                res = v[i - 1];
+            }
+            curr_count = 1;
+        }
+    }
+    if (curr_count > max_count) {
+        max_count = curr_count;
+        res = v[n - 1];
+    }
+    cout << "mode = " << res << endl;
+}
+
+void range_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    sort(v.begin(), v.end());
+    cout << "range = " << v[n - 1] - v[0] << endl;
+}
+
+void sd_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<double> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += v[i];
+    }
+    double mean = sum / n;
+
+    double sq_diff_sum = 0;
+    for (int i = 0; i < n; i++) {
+        sq_diff_sum += (v[i] - mean) * (v[i] - mean);
+    }
+    double sd = sqrt(sq_diff_sum / n);
+    cout << "sd = " << sd << endl;
+}
+
+void var_func() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<double> v(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += v[i];
+    }
+    double mean = sum / n;
+
+    double sq_diff_sum = 0;
+    for (int i = 0; i < n; i++) {
+        sq_diff_sum += (v[i] - mean) * (v[i] - mean);
+    }
+    double var = sq_diff_sum / n;
+    cout << "var = " << var << endl;
+}
+
+void clear_func() {
+    system("clear");
+}
+
+void exit_func() {
+    exit(0);
 }
